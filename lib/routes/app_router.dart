@@ -5,23 +5,23 @@ import 'app_router.gr.dart';
 class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
-        // routes go here
-        AutoRoute(
-          page: HomeRoute.page,
-          initial: true,
-        ),
-        ..._routes
+        _routes.initialRoute,
+        ..._routes.otherRoutes,
       ];
 }
 
 AutoRoute autoRouteCallback(PageInfo page) => AutoRoute(page: page);
 
-final List<AutoRoute> _routes = [
-  AboutRoute.page,
-  LoginRoute.page,
-  ProfileRoute.page,
-]
-    .map(
-      autoRouteCallback,
-    )
-    .toList();
+typedef Routes = ({AutoRoute initialRoute, List<AutoRoute> otherRoutes});
+
+final Routes _routes = (
+  initialRoute: AutoRoute(
+    page: HomeRoute.page,
+    initial: true,
+  ),
+  otherRoutes: [
+    AboutRoute.page,
+    LoginRoute.page,
+    ProfileRoute.page,
+  ].map(autoRouteCallback).toList()
+);
