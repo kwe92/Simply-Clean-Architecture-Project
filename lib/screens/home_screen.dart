@@ -7,22 +7,25 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BaseScreen(
         title: 'Home Screen',
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            OutlinedButton(
-              onPressed: () {},
-              child: const Text('Go to protected route.'),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            OutlinedButton(
-              onPressed: () {},
-              child: const Text('Go to normal route'),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              OutlinedButton(
+                onPressed: () {},
+                child: const Text('Go to protected route.'),
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              OutlinedButton(
+                onPressed: () {},
+                child: const Text('Go to normal route'),
+              ),
+            ],
+          ),
         ),
       );
 }

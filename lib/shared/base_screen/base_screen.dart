@@ -10,7 +10,12 @@ class BaseScreen extends StatelessWidget {
         child: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.purple,
-              title: Text(title),
+              title: Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
             body: child),
       );
