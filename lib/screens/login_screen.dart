@@ -4,11 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:working_with_auto_route_guards/screens/models/login_screen_view_model.dart';
 import 'package:working_with_auto_route_guards/shared/base_screen/base_screen.dart';
 
-typedef BoolCallback = bool Function(bool?);
+typedef BoolVoidCallback = void Function(bool?);
 
 @RoutePage()
 class LoginScreen extends StatelessWidget {
-  final BoolCallback onResult;
+  final BoolVoidCallback onResult;
 
   const LoginScreen({required this.onResult, super.key});
 
@@ -17,10 +17,22 @@ class LoginScreen extends StatelessWidget {
         title: 'Login Screen',
         child: Consumer(
           builder: (BuildContext context, LoginScreenViewModel model, _) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(''),
+            return ListView(
+              padding: const EdgeInsets.all(20),
+              children: <Widget>[
+                TextFormField(
+                  controller: model.usernameController,
+                  decoration: const InputDecoration(
+                    hintText: 'Username',
+                  ),
+                ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: model.passwordController,
+                  decoration: const InputDecoration(
+                    hintText: 'Password',
+                  ),
+                ),
               ],
             );
           },
