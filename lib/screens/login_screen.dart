@@ -12,29 +12,57 @@ class LoginScreen extends StatelessWidget {
   const LoginScreen({required this.onResult, super.key});
 
   @override
-  Widget build(BuildContext context) => BaseScreen(
-        title: 'Login Screen',
-        child: Consumer(
-          builder: (BuildContext context, LoginScreenViewModel model, _) {
-            return ListView(
+  Widget build(BuildContext context) {
+    const double horizontalPadding = 36, verticalPadding = 12;
+
+    return BaseScreen(
+      title: 'Login Screen',
+      child: Consumer(
+        builder: (BuildContext context, LoginScreenViewModel model, _) {
+          return ColoredBox(
+            color: const Color.fromRGBO(141, 142, 154, 0.25),
+            child: Padding(
               padding: const EdgeInsets.all(20),
-              children: <Widget>[
-                TextFormField(
-                  controller: model.usernameController,
-                  decoration: const InputDecoration(
-                    hintText: 'Username',
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  TextFormField(
+                    controller: model.usernameController,
+                    decoration: const InputDecoration(
+                      hintText: 'Username',
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: model.passwordController,
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
+                  const SizedBox(height: 42),
+                  TextFormField(
+                    controller: model.passwordController,
+                    decoration: const InputDecoration(
+                      hintText: 'Password',
+                    ),
                   ),
-                ),
-              ],
-            );
-          },
-        ),
-      );
+                  const SizedBox(height: 32),
+                  OutlinedButton(
+                    onPressed: () {
+                      model.login(
+                        context,
+                        onResult,
+                      );
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        horizontalPadding,
+                        verticalPadding,
+                        horizontalPadding,
+                        verticalPadding,
+                      ),
+                      child: Text('Login'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
 }
