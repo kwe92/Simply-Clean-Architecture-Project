@@ -31,7 +31,7 @@ class LoginScreenViewModel extends ChangeNotifier {
 
 const SnackBar _snackBar = SnackBar(
   duration: Duration(
-    milliseconds: 600,
+    seconds: 3,
   ),
   content: Text(
     'Wrong username or password. Please Try again.',

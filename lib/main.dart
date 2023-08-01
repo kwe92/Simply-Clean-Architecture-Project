@@ -20,6 +20,7 @@ class _RouteGuardsApp extends StatelessWidget {
             useMaterial3: true,
             colorScheme: const ColorScheme.light(
               brightness: Brightness.light,
+              secondary: Colors.red,
             ),
           ),
           routerConfig: _appRouter.config(),
