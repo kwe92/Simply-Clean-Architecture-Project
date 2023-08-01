@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:working_with_auto_route_guards/screens/models/login_screen_view_model.dart';
 import 'package:working_with_auto_route_guards/shared/base_screen/base_screen.dart';
-
-typedef BoolVoidCallback = void Function(bool?);
+import 'package:working_with_auto_route_guards/shared/type_declarations/type_declarations.dart';
 
 @RoutePage()
 class LoginScreen extends StatelessWidget {
