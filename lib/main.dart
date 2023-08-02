@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:working_with_auto_route_guards/routes/app_router.dart';
-import 'package:working_with_auto_route_guards/screens/models/login_screen_view_model.dart';
+import 'package:working_with_auto_route_guards/app/router/app_router.dart';
+import 'package:working_with_auto_route_guards/features/login/ui/login_view_model.dart';
 
+// TODO: Add custom theme
 void main() {
   runApp(_RouteGuardsApp());
 }
@@ -20,7 +21,6 @@ class _RouteGuardsApp extends StatelessWidget {
             useMaterial3: true,
             colorScheme: const ColorScheme.light(
               brightness: Brightness.light,
-              secondary: Colors.red,
             ),
           ),
           routerConfig: _appRouter.config(),
