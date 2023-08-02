@@ -9,7 +9,6 @@ class BaseScaffoldView extends StatelessWidget {
   Widget build(BuildContext context) => SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: const Color.fromRGBO(86, 35, 84, 1),
             title: Text(
               title,
               style: const TextStyle(

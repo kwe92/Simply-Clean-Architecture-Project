@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:working_with_auto_route_guards/app/themes/colors.dart';
 import 'package:working_with_auto_route_guards/app/themes/text_styles.dart';
 
 const String fontFamily = 'CircularXX';
@@ -7,6 +8,7 @@ ThemeData appTheme = ThemeData(
   useMaterial3: true,
   appBarTheme: const AppBarTheme(
     titleTextStyle: textStyleHeader0,
+    backgroundColor: AppColors.purple0,
   ),
   outlinedButtonTheme: primaryOutlinedButton,
 );
