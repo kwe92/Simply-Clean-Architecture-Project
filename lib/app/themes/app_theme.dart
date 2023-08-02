@@ -23,25 +23,25 @@ final _darkTheme = ThemeData(
     // titleLarge: TextStyle(color: Colors.orange),
     // titleSmall: TextStyle(color: Colors.orange),
   ),
-  inputDecorationTheme: const InputDecorationTheme(
-    enabledBorder: UnderlineInputBorder(
+  inputDecorationTheme: InputDecorationTheme(
+    // border: OutlineInputBorder(), //TODO: changed border type
+    hintStyle: bodyTextStyle,
+    contentPadding: const EdgeInsets.fromLTRB(12.0, 0.0, 0.0, 0.0),
+    enabledBorder: const UnderlineInputBorder(
       borderSide: BorderSide(
         color: AppColors.purple0,
         width: borderWidth,
       ),
     ),
-    focusedBorder: UnderlineInputBorder(
+    focusedBorder: const UnderlineInputBorder(
       borderSide: BorderSide(
-        color: Colors.orange,
+        color: AppColors.focusedBorderColor,
         width: borderWidth,
       ),
     ),
-    activeIndicatorBorder: BorderSide(
-      color: Colors.amber,
-    ),
   ),
   textSelectionTheme: const TextSelectionThemeData(
-    cursorColor: Colors.orange,
+    cursorColor: AppColors.focusedBorderColor,
   ),
   outlinedButtonTheme: primaryOutlinedButton,
 );
@@ -50,7 +50,7 @@ const darkColorScheme = ColorScheme.dark(
   background: AppColors.grey0,
   onBackground: AppColors.purple0,
   // surface: Colors.green,
-  onSurface: AppColors.grey0,
+  onSurface: AppColors.grey0, // affects native Flutter navigation back buttonwhat else?
   // onPrimary: Colors.orange,
 );
 
