@@ -9,9 +9,16 @@ const textStyleHeader0 = TextStyle(
   // color: Colors.orange,
 );
 
-const buttonText = TextStyle(
+final buttonTextStyle = TextStyle(
   fontFamily: fontFamily,
   fontWeight: FontWeight.w600,
   fontSize: 18,
-  color: AppColors.purple0,
+  // color: AppColors.purple0,
+  // required to use paint with MaterialStateProperty.resolveWith
+  foreground: Paint()..color = AppColors.purple0,
+);
+
+final TextStyle bodyTextStyle = buttonTextStyle.copyWith(
+  fontWeight: FontWeight.w500,
+  fontSize: 16,
 );
