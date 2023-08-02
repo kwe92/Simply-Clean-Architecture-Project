@@ -22,6 +22,8 @@ class LoginView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                const Text('Login View'),
+                const SizedBox(height: 24),
                 TextFormField(
                   controller: model.usernameController,
                   decoration: const InputDecoration(
