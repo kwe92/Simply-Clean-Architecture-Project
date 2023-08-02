@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:working_with_auto_route_guards/app/navigation/auth_guard.dart';
+import 'package:working_with_auto_route_guards/app/type_declarations/type_declarations.dart';
 import 'app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page|Screen|View,Route')
@@ -13,8 +14,6 @@ class AppRouter extends $AppRouter {
 }
 
 AutoRoute autoRouteCallback(PageInfo page) => AutoRoute(page: page);
-
-typedef Routes = ({AutoRoute initialRoute, List<AutoRoute> protectedRuotes, List<AutoRoute> otherRoutes});
 
 final Routes _routes = (
   initialRoute: AutoRoute(
@@ -32,5 +31,5 @@ final Routes _routes = (
   otherRoutes: [
     AboutRoute.page,
     LoginRoute.page,
-  ].map(autoRouteCallback).toList()
+  ].map(autoRouteCallback)
 );
