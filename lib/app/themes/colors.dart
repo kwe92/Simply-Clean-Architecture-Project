@@ -5,5 +5,8 @@ class AppColors {
   AppColors._();
 
   static const purple0 = Color(0xFF562354);
-  static const grey0 = Color.fromRGBO(141, 142, 154, 0.25);
+
+  static const grey0 = Color(0xFFE3E8EC);
+
+  static const focusedBorderColor = Color.fromRGBO(54, 69, 79, 1);
 }

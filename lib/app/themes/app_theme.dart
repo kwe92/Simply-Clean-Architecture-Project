@@ -4,16 +4,59 @@ import 'package:working_with_auto_route_guards/app/themes/text_styles.dart';
 
 const String fontFamily = 'CircularXX';
 
-ThemeData appTheme = ThemeData(
+ThemeData? appTheme = _darkTheme;
+
+const double borderWidth = 2.5;
+
+final _darkTheme = ThemeData(
   useMaterial3: true,
+  colorScheme: darkColorScheme,
   appBarTheme: const AppBarTheme(
     titleTextStyle: textStyleHeader0,
     backgroundColor: AppColors.purple0,
   ),
+  textTheme: TextTheme(
+    bodyLarge: bodyTextStyle, // controls TextFormField widget style
+    // bodySmall: TextStyle(color: Colors.orange),
+    // bodyMedium: bodyTextStyle, // controls Text widget style
+    // titleMedium: TextStyle(color: Colors.orange),
+    // titleLarge: TextStyle(color: Colors.orange),
+    // titleSmall: TextStyle(color: Colors.orange),
+  ),
+  inputDecorationTheme: InputDecorationTheme(
+    // border: OutlineInputBorder(), //TODO: changed border type
+    hintStyle: bodyTextStyle,
+    contentPadding: const EdgeInsets.fromLTRB(12.0, 0.0, 0.0, 0.0),
+    enabledBorder: const UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.purple0,
+        width: borderWidth,
+      ),
+    ),
+    focusedBorder: const UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.focusedBorderColor,
+        width: borderWidth,
+      ),
+    ),
+  ),
+  textSelectionTheme: const TextSelectionThemeData(
+    cursorColor: AppColors.focusedBorderColor,
+  ),
   outlinedButtonTheme: primaryOutlinedButton,
 );
 
-OutlinedButtonThemeData primaryOutlinedButton = OutlinedButtonThemeData(style: purpleButtonStyle);
+const darkColorScheme = ColorScheme.dark(
+  background: AppColors.grey0,
+  onBackground: AppColors.purple0,
+  // surface: Colors.green,
+  onSurface: AppColors.grey0, // affects native Flutter navigation back buttonwhat else?
+  // onPrimary: Colors.orange,
+);
+
+OutlinedButtonThemeData primaryOutlinedButton = OutlinedButtonThemeData(
+  style: purpleButtonStyle,
+);
 
 // parameterized resolver function to keep code dry
 MaterialStateProperty<T> _resolver<T>(T Function() func) => MaterialStateProperty.resolveWith((states) => func());
@@ -21,10 +64,12 @@ MaterialStateProperty<T> _resolver<T>(T Function() func) => MaterialStatePropert
 const double _horizontalPadding = 48, _verticalPadding = 16;
 
 ButtonStyle purpleButtonStyle = ButtonStyle(
-  shape: _resolver(() => const StadiumBorder()),
+  shape: _resolver(
+    () => const StadiumBorder(),
+  ),
   // foregroundColor: _resolver(() => null),
   // backgroundColor: _resolver(() => null),
-  textStyle: _resolver(() => buttonText),
+  textStyle: _resolver(() => buttonTextStyle),
   padding: _resolver(
     () => const EdgeInsets.fromLTRB(
       _horizontalPadding,
@@ -35,9 +80,9 @@ ButtonStyle purpleButtonStyle = ButtonStyle(
   ),
 );
 
-// how resolve is normally called
-ButtonStyle _purpleButtonStyle1 = ButtonStyle(
-  shape: MaterialStateProperty.resolveWith(
-    (states) => const StadiumBorder(),
-  ),
-);
+// ? how resolve is normally called
+// ButtonStyle _purpleButtonStyle1 = ButtonStyle(
+//   shape: MaterialStateProperty.resolveWith(
+//     (states) => const StadiumBorder(),
+//   ),
+// );
