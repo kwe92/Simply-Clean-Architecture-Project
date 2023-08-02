@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:working_with_auto_route_guards/app/router/app_router.dart';
+import 'package:working_with_auto_route_guards/app/themes/app_theme.dart';
 import 'package:working_with_auto_route_guards/features/login/ui/login_view_model.dart';
 
 // TODO: Add custom theme
@@ -17,12 +18,7 @@ class _RouteGuardsApp extends StatelessWidget {
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (BuildContext context) => LoginScreenViewModel(),
         child: MaterialApp.router(
-          theme: ThemeData(
-            useMaterial3: true,
-            colorScheme: const ColorScheme.light(
-              brightness: Brightness.light,
-            ),
-          ),
+          theme: appTheme,
           routerConfig: _appRouter.config(),
         ),
       );
