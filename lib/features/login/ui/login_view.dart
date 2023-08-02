@@ -13,8 +13,6 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double horizontalPadding = 36, verticalPadding = 12;
-
     return BaseScaffoldView(
       title: 'Login Screen',
       child: Consumer(
@@ -47,15 +45,7 @@ class LoginView extends StatelessWidget {
                         onResult,
                       );
                     },
-                    child: const Padding(
-                      padding: EdgeInsets.fromLTRB(
-                        horizontalPadding,
-                        verticalPadding,
-                        horizontalPadding,
-                        verticalPadding,
-                      ),
-                      child: Text('Login'),
-                    ),
+                    child: const Text('Login'),
                   ),
                 ],
               ),

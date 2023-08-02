@@ -11,11 +11,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BaseScaffoldView(
         title: 'Home Screen',
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               OutlinedButton(
                 onPressed: () {
