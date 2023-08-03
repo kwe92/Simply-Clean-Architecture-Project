@@ -18,7 +18,7 @@ final _darkTheme = ThemeData(
   textTheme: TextTheme(
     bodyLarge: bodyTextStyle, // controls TextFormField widget style
     // bodySmall: TextStyle(color: Colors.orange),
-    // bodyMedium: bodyTextStyle, // controls Text widget style
+    bodyMedium: bodyTextStyle, // controls Text widget style
     // titleMedium: TextStyle(color: Colors.orange),
     // titleLarge: TextStyle(color: Colors.orange),
     // titleSmall: TextStyle(color: Colors.orange),

@@ -17,6 +17,7 @@ class LoginScreenViewModel extends ChangeNotifier {
     String? username = usernameController.text.trim().toLowerCase();
     String? password = passwordController.text.trim();
 
+    // if the username and assword are correct
     if (username == 'gaara' && password == 'sandKing') {
       SharedPreferences pref = await SharedPreferences.getInstance();
       pref.setBool('logged_in', true);
