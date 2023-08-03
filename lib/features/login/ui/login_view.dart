@@ -13,48 +13,46 @@ class LoginView extends StatelessWidget {
   const LoginView({required this.onResult, super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BaseScaffoldView(
-      title: 'Login Screen',
-      child: Consumer(
-        builder: (BuildContext context, LoginScreenViewModel model, _) {
-          return Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text('Login View'),
-                const SizedBox(height: 24),
-                TextFormField(
-                  controller: model.usernameController,
-                  decoration: const InputDecoration(
-                    hintText: 'Username',
+  Widget build(BuildContext context) => BaseScaffoldView(
+        title: 'Login Screen',
+        child: Consumer(
+          builder: (BuildContext context, LoginScreenViewModel model, _) {
+            return Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text('Login View'),
+                  const SizedBox(height: 24),
+                  TextFormField(
+                    controller: model.usernameController,
+                    decoration: const InputDecoration(
+                      hintText: 'Username',
+                    ),
                   ),
-                ),
-                gaph42,
-                TextFormField(
-                  controller: model.passwordController,
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
+                  gaph42,
+                  TextFormField(
+                    controller: model.passwordController,
+                    decoration: const InputDecoration(
+                      hintText: 'Password',
+                    ),
                   ),
-                ),
-                gaph32,
-                OutlinedButton(
-                  onPressed: () {
-                    model.login(
-                      context,
-                      onResult,
-                    );
-                  },
-                  child: const Text('Login'),
-                ),
-                gaph24,
-                const Text('Enter your username and password.')
-              ],
-            ),
-          );
-        },
-      ),
-    );
-  }
+                  gaph32,
+                  OutlinedButton(
+                    child: const Text('Login'),
+                    onPressed: () {
+                      model.login(
+                        context,
+                        onResult,
+                      );
+                    },
+                  ),
+                  gaph24,
+                  const Text('Enter your username and password.')
+                ],
+              ),
+            );
+          },
+        ),
+      );
 }
