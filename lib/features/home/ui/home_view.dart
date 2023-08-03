@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:working_with_auto_route_guards/app/resources/reusables.dart';
 import 'package:working_with_auto_route_guards/app/router/app_router.gr.dart';
 import 'package:working_with_auto_route_guards/features/shared/base_scaffold_view.dart';
 
@@ -23,12 +25,18 @@ class HomeScreen extends StatelessWidget {
                 },
                 child: const Text('Go to protected route.'),
               ),
-              const SizedBox(
-                height: 24,
-              ),
+              gaph24,
               OutlinedButton(
                 onPressed: () {},
                 child: const Text('Go to normal route'),
+              ),
+              gaph32,
+              OutlinedButton(
+                child: const Text('Logout'),
+                onPressed: () async {
+                  SharedPreferences pref = await SharedPreferences.getInstance();
+                  pref.clear();
+                },
               ),
             ],
           ),
