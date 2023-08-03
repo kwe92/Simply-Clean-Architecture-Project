@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:working_with_auto_route_guards/app/resources/reusables.dart';
 import 'package:working_with_auto_route_guards/features/login/ui/login_view_model.dart';
 import 'package:working_with_auto_route_guards/features/shared/base_scaffold_view.dart';
 import 'package:working_with_auto_route_guards/app/type_declarations/type_declarations.dart';
@@ -30,14 +31,14 @@ class LoginView extends StatelessWidget {
                     hintText: 'Username',
                   ),
                 ),
-                const SizedBox(height: 42),
+                gaph42,
                 TextFormField(
                   controller: model.passwordController,
                   decoration: const InputDecoration(
                     hintText: 'Password',
                   ),
                 ),
-                const SizedBox(height: 32),
+                gaph32,
                 OutlinedButton(
                   onPressed: () {
                     model.login(
@@ -47,6 +48,8 @@ class LoginView extends StatelessWidget {
                   },
                   child: const Text('Login'),
                 ),
+                gaph24,
+                const Text('Enter your username and password.')
               ],
             ),
           );
