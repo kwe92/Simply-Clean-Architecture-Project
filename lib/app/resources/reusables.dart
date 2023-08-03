@@ -31,3 +31,5 @@ const SizedBox gapw24 = SizedBox(width: 24);
 const SizedBox gapw32 = SizedBox(width: 32);
 
 const SizedBox gapw42 = SizedBox(width: 42);
+
+// Reuseable resources to keep code DRY
