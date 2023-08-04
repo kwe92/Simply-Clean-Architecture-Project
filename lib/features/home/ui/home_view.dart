@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
                   // TODO: use appRoute singleton
                   AutoRouter.of(context).push(const ProfileRoute());
                 },
-                child: const Text('Go to protected route.'),
+                child: const Text('Go to protected route'),
               ),
               gaph24,
               OutlinedButton(
