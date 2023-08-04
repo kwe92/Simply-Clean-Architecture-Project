@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:working_with_auto_route_guards/app/type_declarations/type_declarations.dart';
 
-// TODO: research shared prefs
-
 class LoginScreenViewModel extends ChangeNotifier {
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -17,13 +15,19 @@ class LoginScreenViewModel extends ChangeNotifier {
     String? username = usernameController.text.trim().toLowerCase();
     String? password = passwordController.text.trim();
 
-    // if the username and assword are correct
+    // if the username and password are correct set guard predicate to true
     if (username == 'gaara' && password == 'sandKing') {
+      // used to presist data to disk temporarily
+      // mimicing user login functionality
       SharedPreferences pref = await SharedPreferences.getInstance();
+
       pref.setBool('logged_in', true);
+
       onResult.call(true);
+
       return;
     }
+
     ScaffoldMessenger.of(context).showSnackBar(
       _snackBar,
     );

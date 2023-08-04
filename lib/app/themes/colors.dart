@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // private named constructor; local to the class.
-  AppColors._();
+  const AppColors._();
 
   static const purple0 = Color(0xFF562354);
 
@@ -10,3 +10,10 @@ class AppColors {
 
   static const focusedBorderColor = Color.fromRGBO(54, 69, 79, 1);
 }
+
+// Colors Class
+
+//   - define all application colors in one class
+//   - using const ClassName._() as the named (identity) constructor
+//     prevents the class from being instantiated (created as an object)
+//     without the need to modify the class to be abstract

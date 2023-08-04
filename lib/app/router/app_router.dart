@@ -33,3 +33,21 @@ final Routes _routes = (
     LoginRoute.page,
   ].map(autoRouteCallback)
 );
+
+// Implementing AppRouter Class
+
+  // - requires three parameters:
+  
+  //   - 1: annotating your AppRouter class with:
+  
+  //          - @AppRouterConfig()
+  
+  //              - an annotation that gives the compiler some meta data
+  //                to work with auto_route_generator and designates the
+  //                class to be an app router
+
+  //   - 2: extending (inheriting) $NameOfYourRouterClass
+  
+  //   - 3: annotating all view "pages or screens" with @RoutePage()
+
+  
