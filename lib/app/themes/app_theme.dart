@@ -4,7 +4,15 @@ import 'package:working_with_auto_route_guards/app/themes/text_styles.dart';
 
 const String fontFamily = 'CircularXX';
 
-// TODO:light mode colors: Navigatino back button color | snackbar color | on pressed button color | hilighted text color of TextFormField | ensure its not an off white background
+// TODO:light mode colors: Navigation back button color | snackbar color | hilighted text color of TextFormField | ensure its not an off white background
+
+// ? completed
+// ?   - on pressed button color (lightBlue1)
+// ?
+// ?
+// ?
+// ?
+// ?
 
 ThemeData? appTheme = getThemeData(isDarkMode: false);
 
@@ -20,11 +28,11 @@ ThemeData getThemeData({required bool isDarkMode}) {
     ),
     textTheme: TextTheme(
       bodyLarge: isDarkMode
-          ? bodyTextStyle
+          ? bodyTextStyle.copyWith(foreground: Paint()..color = AppColors.purple0)
           : bodyTextStyle.copyWith(foreground: Paint()..color = AppColors.skyBlue), //? controls TextFormField widget style
       // bodySmall: TextStyle(color: Colors.orange),
       bodyMedium: isDarkMode
-          ? bodyTextStyle
+          ? bodyTextStyle.copyWith(foreground: Paint()..color = AppColors.purple0)
           : bodyTextStyle.copyWith(foreground: Paint()..color = AppColors.skyBlue), //? controls Text widget style
       // titleMedium: TextStyle(color: Colors.orange),
       // titleLarge: TextStyle(color: Colors.orange),
@@ -32,7 +40,9 @@ ThemeData getThemeData({required bool isDarkMode}) {
     ),
     inputDecorationTheme: InputDecorationTheme(
       // border: OutlineInputBorder(), //TODO: changed border type
-      hintStyle: isDarkMode ? bodyTextStyle : bodyTextStyle.copyWith(foreground: Paint()..color = AppColors.skyBlue),
+      hintStyle: isDarkMode
+          ? bodyTextStyle.copyWith(foreground: Paint()..color = AppColors.purple0)
+          : bodyTextStyle.copyWith(foreground: Paint()..color = AppColors.skyBlue),
       contentPadding: const EdgeInsets.fromLTRB(12.0, 0.0, 0.0, 0.0),
       enabledBorder: UnderlineInputBorder(
         borderSide: BorderSide(
@@ -42,13 +52,13 @@ ThemeData getThemeData({required bool isDarkMode}) {
       ),
       focusedBorder: UnderlineInputBorder(
         borderSide: BorderSide(
-          color: isDarkMode ? AppColors.charcol : AppColors.lightBlue,
+          color: isDarkMode ? AppColors.charcol : AppColors.lightBlue0,
           width: borderWidth,
         ),
       ),
     ),
     textSelectionTheme: TextSelectionThemeData(
-      cursorColor: isDarkMode ? AppColors.charcol : AppColors.lightBlue,
+      cursorColor: isDarkMode ? AppColors.charcol : AppColors.lightBlue0,
     ),
     outlinedButtonTheme: isDarkMode ? purpleOutlinedButton : blueOutlinedButton,
   );
@@ -90,7 +100,9 @@ ButtonStyle purpleButtonStyle = ButtonStyle(
   ),
   // foregroundColor: _resolver(() => null),
   // backgroundColor: _resolver(() => null),
-  textStyle: _resolver(() => buttonTextStyle),
+  textStyle: _resolver(
+    () => buttonTextStyle.copyWith(foreground: Paint()..color = AppColors.purple0),
+  ),
   padding: _resolver(
     () => const EdgeInsets.fromLTRB(
       _horizontalPadding,
@@ -122,7 +134,13 @@ ButtonStyle blueButtonStyle = ButtonStyle(
       _verticalPadding,
     ),
   ),
+  overlayColor: _resolver(
+    () => AppColors.lightBlue1,
+  ),
 );
+
+final b = blueButtonStyle.copyWith();
+
 
 
 
@@ -147,3 +165,7 @@ ButtonStyle blueButtonStyle = ButtonStyle(
 // ThemeData docs:
 
 //   - Material components typically depend exclusively on the [colorScheme] and [textTheme]
+
+// Why use foreground: Paint()..color?
+
+// foreground: Paint()..color = Color is required to change the color of text when using MaterialStateProperty.resolveWith
