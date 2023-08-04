@@ -4,7 +4,7 @@ import 'package:working_with_auto_route_guards/app/router/app_router.dart';
 import 'package:working_with_auto_route_guards/app/themes/app_theme.dart';
 import 'package:working_with_auto_route_guards/features/login/ui/login_view_model.dart';
 
-// TODO: Add custom theme
+// TODO: Add multiprovider
 void main() {
   runApp(_RouteGuardsApp());
 }
@@ -18,7 +18,7 @@ class _RouteGuardsApp extends StatelessWidget {
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (BuildContext context) => LoginScreenViewModel(),
         child: MaterialApp.router(
-          theme: appTheme,
+          theme: AppTheme.getThemeData(isDarkMode: false),
           routerConfig: _appRouter.config(),
         ),
       );

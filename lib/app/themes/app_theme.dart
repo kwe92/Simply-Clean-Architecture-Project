@@ -1,61 +1,83 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:working_with_auto_route_guards/app/themes/colors.dart';
 import 'package:working_with_auto_route_guards/app/themes/text_styles.dart';
 
 const String fontFamily = 'CircularXX';
 
-ThemeData? appTheme = _darkTheme;
+// TODO: Add comments on sections of code that seem to require
 
-const double borderWidth = 2.5;
+class AppTheme {
+  const AppTheme._();
 
-final _darkTheme = ThemeData(
-  useMaterial3: true,
-  colorScheme: darkColorScheme,
-  appBarTheme: const AppBarTheme(
-    titleTextStyle: textStyleHeader0,
-    backgroundColor: AppColors.purple0,
-  ),
-  textTheme: TextTheme(
-    bodyLarge: bodyTextStyle, //? controls TextFormField widget style
-    // bodySmall: TextStyle(color: Colors.orange),
-    bodyMedium: bodyTextStyle, //? controls Text widget style
-    // titleMedium: TextStyle(color: Colors.orange),
-    // titleLarge: TextStyle(color: Colors.orange),
-    // titleSmall: TextStyle(color: Colors.orange),
-  ),
-  inputDecorationTheme: InputDecorationTheme(
-    // border: OutlineInputBorder(), //TODO: changed border type
-    hintStyle: bodyTextStyle,
-    contentPadding: const EdgeInsets.fromLTRB(12.0, 0.0, 0.0, 0.0),
-    enabledBorder: const UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: AppColors.purple0,
-        width: borderWidth,
+  static ThemeData getThemeData({required bool isDarkMode}) {
+    const double borderWidth = 2.5;
+    final appTextStyle = AppTextStyles.getBodyTextStyle(isDarkMode: isDarkMode);
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: isDarkMode ? darkColorScheme : lightColorScheme,
+      appBarTheme: AppBarTheme(
+        titleTextStyle: AppTextStyles.textStyleHeader0,
+        backgroundColor: isDarkMode ? AppColors.purple0 : AppColors.abyssalBlue,
       ),
-    ),
-    focusedBorder: const UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: AppColors.focusedBorderColor,
-        width: borderWidth,
+      textTheme: TextTheme(
+        bodyLarge: appTextStyle, // controls TextFormField widget style
+        bodyMedium: appTextStyle, // controls Text widget style
       ),
-    ),
-  ),
-  textSelectionTheme: const TextSelectionThemeData(
-    cursorColor: AppColors.focusedBorderColor,
-  ),
-  outlinedButtonTheme: primaryOutlinedButton,
-);
+      // change selectionHandleColor on IOS
+      cupertinoOverrideTheme: const CupertinoThemeData(
+        primaryColor: AppColors.skyBlue,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: appTextStyle,
+        contentPadding: const EdgeInsets.fromLTRB(12.0, 0.0, 0.0, 0.0),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: isDarkMode ? AppColors.purple0 : AppColors.skyBlue,
+            width: borderWidth,
+          ),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: isDarkMode ? AppColors.charcol : AppColors.lightBlue0,
+            width: borderWidth,
+          ),
+        ),
+      ),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: isDarkMode ? AppColors.charcol : AppColors.lightBlue0,
+        selectionColor: AppColors.lightBlue1,
+      ),
+      outlinedButtonTheme: isDarkMode ? purpleOutlinedButton : blueOutlinedButton,
+      snackBarTheme: SnackBarThemeData(
+        shape: ContinuousRectangleBorder(
+          side: BorderSide(
+            color: isDarkMode ? AppColors.purple0 : AppColors.skyBlue,
+            width: borderWidth,
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 const darkColorScheme = ColorScheme.dark(
   background: AppColors.grey0,
-  onBackground: AppColors.purple0,
-  // surface: Colors.green,
-  onSurface: AppColors.grey0, //? affects Flutter navigation back button what else?
-  // onPrimary: Colors.orange,
+  onBackground: AppColors.purple0, // affects borders, what else?
+  onSurface: AppColors.grey0, // affects Flutter navigation back button, snackBar background what else?
 );
 
-OutlinedButtonThemeData primaryOutlinedButton = OutlinedButtonThemeData(
+const lightColorScheme = ColorScheme.light(
+  onBackground: AppColors.skyBlue,
+  onSurface: Colors.white,
+);
+
+OutlinedButtonThemeData purpleOutlinedButton = OutlinedButtonThemeData(
   style: purpleButtonStyle,
+);
+
+OutlinedButtonThemeData blueOutlinedButton = OutlinedButtonThemeData(
+  style: blueButtonStyle,
 );
 
 // parameterized resolver function to keep code DRY
@@ -68,13 +90,10 @@ MaterialStateProperty<T> _resolver<T>(
 
 const double _horizontalPadding = 48, _verticalPadding = 16;
 
-ButtonStyle purpleButtonStyle = ButtonStyle(
+ButtonStyle basicButtonStyle = ButtonStyle(
   shape: _resolver(
     () => const StadiumBorder(),
   ),
-  // foregroundColor: _resolver(() => null),
-  // backgroundColor: _resolver(() => null),
-  textStyle: _resolver(() => buttonTextStyle),
   padding: _resolver(
     () => const EdgeInsets.fromLTRB(
       _horizontalPadding,
@@ -85,12 +104,37 @@ ButtonStyle purpleButtonStyle = ButtonStyle(
   ),
 );
 
+ButtonStyle purpleButtonStyle = basicButtonStyle.copyWith(
+  textStyle: _resolver(
+    () => AppTextStyles.buttonTextStyle.copyWith(
+      foreground: Paint()..color = AppColors.purple0,
+    ),
+  ),
+);
+
+ButtonStyle blueButtonStyle = basicButtonStyle.copyWith(
+  textStyle: _resolver(
+    () => AppTextStyles.buttonTextStyle.copyWith(
+      foreground: Paint()..color = AppColors.skyBlue,
+    ),
+  ),
+  overlayColor: _resolver(
+    () => AppColors.lightBlue1,
+  ),
+);
+
+
+// --------------------------------------------------------------- //
+
 // ? how resolve is normally called
+
 // ButtonStyle _purpleButtonStyle1 = ButtonStyle(
 //   shape: MaterialStateProperty.resolveWith(
 //     (states) => const StadiumBorder(),
 //   ),
 // );
+
+// ----------------------------Summary---------------------------- //
 
 // ThemeData
 
@@ -100,3 +144,7 @@ ButtonStyle purpleButtonStyle = ButtonStyle(
 // ThemeData docs:
 
 //   - Material components typically depend exclusively on the [colorScheme] and [textTheme]
+
+// Why use foreground: Paint()..color?
+
+// foreground: Paint()..color = Color is required to change the color of text when using MaterialStateProperty.resolveWith

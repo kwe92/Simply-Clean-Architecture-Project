@@ -2,29 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:working_with_auto_route_guards/app/themes/app_theme.dart';
 import 'package:working_with_auto_route_guards/app/themes/colors.dart';
 
-// TODO: code use some refactoring
+class AppTextStyles {
+  const AppTextStyles._();
 
-const textStyleHeader0 = TextStyle(
-  fontFamily: fontFamily,
-  fontWeight: FontWeight.w600,
-  fontSize: 24,
-  // color: Colors.orange,
-);
+  static const baseTextStyle = TextStyle(
+    fontFamily: fontFamily,
+    fontWeight: FontWeight.w600,
+  );
 
-final buttonTextStyle = TextStyle(
-  fontFamily: fontFamily,
-  fontWeight: FontWeight.w600,
-  fontSize: 18,
-  foreground: Paint()
-    ..color = AppColors
-        .purple0, //? foreground: Paint()..color = Color is required to change the color of text when using MaterialStateProperty.resolveWith
-);
+  static final textStyleHeader0 = baseTextStyle.copyWith(
+    fontSize: 24,
+  );
 
-final TextStyle bodyTextStyle = buttonTextStyle.copyWith(
-  fontWeight: FontWeight.w500,
-  fontSize: 16,
-);
+  static final buttonTextStyle = baseTextStyle.copyWith(
+    fontSize: 18,
+  );
 
+  static final TextStyle bodyTextStyle = baseTextStyle.copyWith(
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+  );
+
+  static TextStyle getBodyTextStyle({required bool isDarkMode}) => isDarkMode
+      ? bodyTextStyle.copyWith(foreground: Paint()..color = AppColors.purple0)
+      : bodyTextStyle.copyWith(foreground: Paint()..color = AppColors.skyBlue);
+}
 // TextStyle Module
 
 //   - keep text application text styles in one location
