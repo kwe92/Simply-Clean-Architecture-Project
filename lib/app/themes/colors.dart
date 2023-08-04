@@ -14,7 +14,9 @@ class AppColors {
 
   static const skyBlue = Color.fromRGBO(2, 117, 194, 1);
 
-  static const lightBlue = Color.fromRGBO(121, 172, 219, 1);
+  static const lightBlue0 = Color.fromRGBO(121, 172, 219, 1);
+
+  static const lightBlue1 = Color.fromRGBO(121, 172, 219, 0.25);
 }
 
 // Colors Class
