@@ -8,7 +8,13 @@ class AppColors {
 
   static const grey0 = Color(0xFFE3E8EC);
 
-  static const focusedBorderColor = Color.fromRGBO(54, 69, 79, 1);
+  static const charcol = Color(0xFF36454F);
+
+  static const abyssalBlue = Color(0xFF1B2834);
+
+  static const skyBlue = Color.fromRGBO(2, 117, 194, 1);
+
+  static const lightBlue = Color.fromRGBO(121, 172, 219, 1);
 }
 
 // Colors Class
