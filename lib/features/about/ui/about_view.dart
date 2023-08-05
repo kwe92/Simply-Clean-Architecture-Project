@@ -7,7 +7,7 @@ class AboutView extends StatelessWidget {
   const AboutView({super.key});
 
   Widget build(BuildContext context) => const BaseScaffoldView(
-        title: 'About Screen',
+        title: 'About View',
         child: Column(),
       );
 }

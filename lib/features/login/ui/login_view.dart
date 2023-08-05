@@ -14,7 +14,7 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BaseScaffoldView(
-        title: 'Login Screen',
+        title: 'Login View',
         child: Consumer(
           builder: (BuildContext context, LoginScreenViewModel model, _) {
             return Padding(
@@ -48,7 +48,7 @@ class LoginView extends StatelessWidget {
                     },
                   ),
                   gaph24,
-                  const Text('Enter your username and password.')
+                  const Text('Enter your username: Gaara and password: sandKing')
                 ],
               ),
             );

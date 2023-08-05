@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScaffoldView(
-      title: 'Home Screen',
+      title: 'Home View',
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
