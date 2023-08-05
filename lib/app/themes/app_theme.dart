@@ -25,8 +25,8 @@ class AppTheme {
         bodyMedium: appTextStyle, // controls Text widget style
       ),
       // change selectionHandleColor on IOS
-      cupertinoOverrideTheme: const CupertinoThemeData(
-        primaryColor: AppColors.skyBlue,
+      cupertinoOverrideTheme: CupertinoThemeData(
+        primaryColor: isDarkMode ? AppColors.purple0 : AppColors.skyBlue,
       ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: appTextStyle,
@@ -46,7 +46,7 @@ class AppTheme {
       ),
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: isDarkMode ? AppColors.charcol : AppColors.lightBlue0,
-        selectionColor: AppColors.lightBlue1,
+        selectionColor: isDarkMode ? AppColors.purple1 : AppColors.lightBlue1,
       ),
       outlinedButtonTheme: isDarkMode ? purpleOutlinedButton : blueOutlinedButton,
       snackBarTheme: SnackBarThemeData(
