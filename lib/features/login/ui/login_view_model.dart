@@ -11,6 +11,12 @@ class LoginScreenViewModel extends ChangeNotifier {
   TextEditingController get usernameController => _usernameController;
   TextEditingController get passwordController => _passwordController;
 
+  void clearControllers() {
+    usernameController.clear();
+    passwordController.clear();
+    notifyListeners();
+  }
+
   Future<void> login(BuildContext context, BoolVoidCallback onResult) async {
     String? username = usernameController.text.trim().toLowerCase();
     String? password = passwordController.text.trim();
@@ -27,7 +33,7 @@ class LoginScreenViewModel extends ChangeNotifier {
 
       return;
     }
-
+    // TODO: bruh remove this from here
     ScaffoldMessenger.of(context).showSnackBar(
       _snackBar,
     );
