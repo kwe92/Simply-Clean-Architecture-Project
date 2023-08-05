@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:working_with_auto_route_guards/app/resources/reusables.dart';
 import 'package:working_with_auto_route_guards/features/login/ui/login_view_model.dart';
-import 'package:working_with_auto_route_guards/features/shared/base_scaffold_view.dart';
+import 'package:working_with_auto_route_guards/features/shared/ui/base_scaffold_view.dart';
 import 'package:working_with_auto_route_guards/app/type_declarations/type_declarations.dart';
 
 @RoutePage()
