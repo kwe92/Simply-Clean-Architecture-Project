@@ -1,4 +1,4 @@
-# Flutter: Clean Architecture
+# Flutter: Clean Architecture | D.R.Y Clean Code
 
 By employing clean architecture, you can design applications with very low coupling and independent of technical implementation details. That way, the application becomes easy to maintain and flexible to change. Clean architecture allows us to create architectural boundaries between dependencies which allows components to be intrinsically testable
 
