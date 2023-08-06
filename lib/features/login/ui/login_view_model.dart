@@ -3,6 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:working_with_auto_route_guards/app/type_declarations/type_declarations.dart';
+import 'package:working_with_auto_route_guards/features/shared/services/toast_service.dart';
+
+// TODO: remove with get_it dependency addition
+
+const _toastService = ToastService();
 
 class LoginScreenViewModel extends ChangeNotifier {
   TextEditingController _usernameController = TextEditingController();
@@ -33,18 +38,9 @@ class LoginScreenViewModel extends ChangeNotifier {
 
       return;
     }
-    // TODO: bruh remove this from here
-    ScaffoldMessenger.of(context).showSnackBar(
-      _snackBar,
+    _toastService.showSnackBar(
+      context: context,
+      message: 'Wrong username or password. Please Try again.',
     );
   }
 }
-
-const SnackBar _snackBar = SnackBar(
-  duration: Duration(
-    seconds: 3,
-  ),
-  content: Text(
-    'Wrong username or password. Please Try again.',
-  ),
-);
