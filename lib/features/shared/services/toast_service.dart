@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-// TODO: Continue building out the toast service API
+
+// TODO: add get_it and @injectable
+
 /// Service for displaying toasts, snackbars, banners or other
 /// temporary info boxes
 /// SimpleDialog can get you most of the way there
@@ -7,12 +9,21 @@ import 'package:flutter/material.dart';
 class ToastService {
   const ToastService();
 
-  void showSnackBar({required BuildContext context, required String Message}) {
-    // ScaffoldMessenger.of(context).showSnackBar();
+  void showSnackBar({
+    required BuildContext context,
+    required String message,
+    Duration duration = const Duration(seconds: 3),
+  }) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: duration,
+        content: Text(
+          message,
+        ),
+      ),
+    );
   }
 }
-
-final scaffoldMessengerState = ScaffoldMessengerState();
 
 
 // ScaffoldMessenger
