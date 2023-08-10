@@ -1,18 +1,26 @@
 # Flutter: Clean Architecture | D.R.Y Clean Code
 
-By employing clean architecture, you can design applications with very low coupling and independent of technical implementation details. That way, the application becomes easy to maintain and flexible to change. Clean architecture allows us to create architectural boundaries between dependencies which allows components to be intrinsically testable
+Why Clean Architecture?
+
+- Because we like to create ALOT of folders :D
+
+- you can design applications with very low coupling (different folders) independent of technical implementation details.
+
+- the application becomes easy to maintain and flexible to change.
+
+- Clean architecture allows us to create architectural boundaries between dependencies (have a bunch of folders) which allows components to be intrinsically testable
 
 Tools/Libraries (Packages)
 
-- Provider: a flutter state management (You can use any kind of state management you prefer.
+- Provider: Flutter state management (You can use any kind of state management you prefer)
 
-- auto_route: a routing package that uses the new Flutter Router instead of the default Navigator.
+- auto_route: Routing package that uses the new Flutter Router instead of the default Navigator.
 
-- equatable: a flutter package that makes comparing dart objects by equality much easier. (COMING SOON!)
+- get_it: Service locator design pattern package (also a runtime dependency injector). (COMING SOON!)
 
-- get_it: a service locator (also a runtime dependency injector). (COMING SOON!)
+- equatable: Flutter package that makes comparing dart objects by equality much easier. (COMING SOON!)
 
-- lint: a flutter package that helps you write clean code which follows Dart’s Style Guidelines. (COMING SOON!)
+- lint: Flutter package that helps you write clean code which follows Dart’s Style Guidelines. (COMING SOON!)
 
 - retrofit: is a source code generator package that uses Dio as an HTTP client to generate the proper methods we need to deal with REST APIs based on abstraction, it’s inspired by the Android Retrofit. (COMING SOON!)
 
